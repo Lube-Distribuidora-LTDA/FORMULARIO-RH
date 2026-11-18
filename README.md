@@ -4,6 +4,16 @@ O formulário do RH ("Mapeamento de Funções e Atividades") num site próprio, 
 Júlio, 2026-11-18): todo funcionário responde pelo celular ou computador **sem login**, e só quem tem a **senha do
 ADM** vê quem respondeu e o que escreveu. Substitui o Microsoft Forms de 2026-11-05.
 
+## Onde está
+
+| O quê | Onde |
+|---|---|
+| Endereço (o link para os funcionários) | **https://formulario-rh-lube.vercel.app** |
+| Endereço que a Vercel deu | `formulario-rh-three.vercel.app` (o `formulario-rh.vercel.app` é de outra conta) |
+| Projeto na Vercel | `formulario-rh` (Root `web`, Other, `gru1`, Node 22.x, Vercel Authentication Standard) |
+| Repositório | `Lube-Distribuidora-LTDA/FORMULARIO-RH` (público, sem dado de pessoa) |
+| Publicado | 2026-11-18, primeiro deploy pela API |
+
 ## Como funciona
 
 ```
