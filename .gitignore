@@ -1,0 +1,7 @@
+node_modules/
+.vercel/
+ENV
+.env*
+web/.senha-local
+*.docx
+imagens/

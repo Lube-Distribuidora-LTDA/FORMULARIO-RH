@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0A1255">
+  <title>Mapeamento de Funções · Lube</title>
+  <link rel="icon" type="image/png" href="logo-lube.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilo.css?v=1">
+</head>
+<body>
+  <div class="fundo" aria-hidden="true"><span class="faixa f1"></span><span class="faixa f2"></span><span class="faixa f3"></span></div>
+
+  <header class="topo">
+    <img class="logo" src="logo-lube.png" alt="Lube Distribuidora" width="150" height="51">
+    <button class="btn-adm" id="btnAdm" type="button" aria-label="Área do RH (ADM)">
+      <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5Zm-3 8V7a3 3 0 0 1 6 0v3H9Z"/></svg>
+      ADM
+    </button>
+  </header>
+
+  <!-- ===================== FORMULÁRIO ===================== -->
+  <main id="telaFormulario" class="tela">
+    <section class="cabeca">
+      <p class="selo">RH · Departamento de Recursos Humanos</p>
+      <h1>Mapeamento de Funções e Atividades</h1>
+      <p class="sub">Conte com as suas palavras o que você faz no dia a dia. Isso ajuda o RH a atualizar as descrições de cargos da empresa. Não existe resposta certa ou errada.</p>
+      <p class="privado"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5Zm-3 8V7a3 3 0 0 1 6 0v3H9Z"/></svg> Suas respostas são vistas somente pelo RH.</p>
+    </section>
+
+    <div class="progresso" aria-hidden="true"><div class="barra" id="barra"></div></div>
+    <p class="passo" id="passo"></p>
+
+    <form id="form" class="cartao" novalidate autocomplete="off">
+      <div id="secao"></div>
+      <!-- isca para robôs: invisível para pessoas -->
+      <label class="isca" aria-hidden="true">Site<input type="text" name="site" tabindex="-1" autocomplete="off"></label>
+      <p class="aviso-erro" id="avisoErro" role="alert" hidden></p>
+      <div class="acoes">
+        <button type="button" class="btn sec" id="btnVoltar">Voltar</button>
+        <button type="button" class="btn pri" id="btnAvancar">Avançar</button>
+      </div>
+    </form>
+    <p class="rascunho" id="rascunho" hidden>Rascunho guardado neste aparelho.</p>
+  </main>
+
+  <!-- ===================== OBRIGADO ===================== -->
+  <main id="telaObrigado" class="tela" hidden>
+    <section class="cartao obrigado">
+      <div class="check" aria-hidden="true"><svg viewBox="0 0 24 24" width="38" height="38"><path fill="currentColor" d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></div>
+      <h2 id="obrigadoTitulo">Obrigado!</h2>
+      <p>Suas respostas foram enviadas ao RH da Lube.</p>
+      <p class="mini" id="obrigadoQuando"></p>
+    </section>
+  </main>
+
+  <!-- ===================== ADM ===================== -->
+  <main id="telaAdm" class="tela adm" hidden>
+    <section class="adm-topo">
+      <div>
+        <p class="selo">Área do RH</p>
+        <h1>Respostas do formulário</h1>
+        <p class="sub" id="admLido"></p>
+      </div>
+      <div class="adm-botoes">
+        <button class="btn sec" id="admAtualizar" type="button">Atualizar</button>
+        <button class="btn sec" id="admExcel" type="button">Excel</button>
+        <button class="btn pri" id="admSair" type="button">Sair</button>
+      </div>
+    </section>
+
+    <section class="kpis" id="admKpis"></section>
+
+    <section class="filtros">
+      <input type="search" id="admBusca" placeholder="Buscar por nome, setor, cargo ou gestor">
+    </section>
+
+    <section class="lista" id="admLista"></section>
+  </main>
+
+  <!-- Janela da senha -->
+  <div class="janela" id="janelaSenha" hidden>
+    <form class="janela-caixa" id="formSenha" autocomplete="off">
+      <h2>Área do RH</h2>
+      <p class="sub">Digite a senha para ver quem respondeu.</p>
+      <input type="password" id="senha" placeholder="Senha" autocomplete="current-password" required>
+      <p class="aviso-erro" id="senhaErro" role="alert" hidden></p>
+      <div class="acoes">
+        <button type="button" class="btn sec" id="senhaCancelar">Cancelar</button>
+        <button type="submit" class="btn pri" id="senhaEntrar">Entrar</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Ficha de uma resposta -->
+  <div class="janela lateral" id="janelaFicha" hidden>
+    <article class="ficha" id="ficha"></article>
+  </div>
+
+  <script src="campos.js?v=1"></script>
+  <script src="app.js?v=1"></script>
+  <script src="adm.js?v=1"></script>
+</body>
+</html>

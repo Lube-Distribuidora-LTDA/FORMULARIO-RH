@@ -1,0 +1,15 @@
+{
+  "name": "formulario-rh-lube",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Formulário de Mapeamento de Funções e Atividades do RH da Lube: resposta aberta, tela ADM com senha.",
+  "engines": {
+    "node": "22.x"
+  },
+  "scripts": {
+    "local": "node servidor_local.js"
+  },
+  "dependencies": {
+    "pg": "^8.13.1"
+  }
+}
